@@ -1,0 +1,21 @@
+#logparser.py
+def parser(msg):
+    result = re.search('(?P<host>.*?)\s(?P<identity>.*?)\s(?P<user>.*?)\s\[(?P<time>.*?)\]\s\"(?P<request>.*?)\"\s(?P<status>\d{3})\s(?P<size>\d+)\s\"(?P<referer>.*?)\"\s\"(?P<agent>.*?)\"\s',msg)
+    return result.groupdict()
+    
+
+#main.py
+
+import logparser
+fh = open('/home/jaseel/python_study/jaseel.log','r')
+counter = {}
+for line in fh:
+    
+    result = parser(line)
+    host = result['host']
+    if host not in counter:
+        counter[host] = 1
+    else:
+        counter[host] += 1
+
+print(counter)    

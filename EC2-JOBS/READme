@@ -1,0 +1,10 @@
+PreRequisite
+
+Create an IAM User
+Save Accesskey and secret key
+Install aws-cli
+Install python3,pip3
+
+aws configure
+Provide the Access Key ID, Secret Key, Default AWS region, and output format
+
